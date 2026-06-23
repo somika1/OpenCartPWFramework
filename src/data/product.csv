@@ -1,0 +1,5 @@
+searchkey,productname,resultcount,productheader,productimages,brand,productcode,rewardspoint,availability,productprice,extaxprice
+macbook,MacBook Pro,3,MacBook Pro,4,Apple,Product 18,800,Out Of Stock,"$2,000.00","$2,000.00"
+macbook,MacBook Air,3,MacBook Air,4,Apple,Product 17,700,Out Of Stock,"$1,202.00","$1,000.00"
+imac,iMac,1,iMac,3,Apple,Product 14,null,Out Of Stock,"$122.00","$100.00"
+airtel,Search - airtel,0,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined

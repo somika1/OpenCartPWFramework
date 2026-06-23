@@ -1,0 +1,113 @@
+C -> create -> Post -> 201 Create
+R -> Read -> Get -> 200 OK
+U -> Update -> Put/Patch -> 200 OK
+D -> Delete -> Delete -> 204 No Content
+
+Failures:-
+if authorization fails - 401 unauthorized
+if posting/creating user with same body and primary key -> 422 Unprocessable Entity
+if get/delete call fail because given id not found -> 404 Not found
+
+Difference between put and Patch
+As per REST convention
+Put : replace the entire resource 
+Patch : Modify only specified fields
+but if API is designed in such a way that but passing partial info in PUT also will change the partial data rest will remain unchanged
+--------------Definition -------------------
+"According to REST semantics, PUT is intended to replace the entire resource, 
+while PATCH updates only specific fields. However, in practice, many APIs implement PUT as a partial update 
+for convenience. As a tester, I don't rely solely on the HTTP method—I verify the actual behavior through the 
+API documentation and by testing the endpoint."
+
+Difference between put ans post
+Put : used for modifying existing data but if given user id not available then new data will be created
+POST : To create new data, if primary key is different then with same body n number of data can be created
+comparatively PUT is safer than POST hence called PUT is "IDEMPOTENT"
+
+Cypress also works for both API and web like Pw.
+Playwright supports API but Rest Assured has rich library.
+
+Complete test case design should be independent
+1. create new user ---> POST->GET (is called API chaining)
+step 1: create new user with post
+step 2: fetch the user id
+step 3: get the user with same user id with get 
+
+1. update user ---> POST->GET->PUT->GET (is called API chaining)
+step 1: create new user with post
+step 2: fetch the user id
+step 3: get the user with same user id with get
+step 4: update the data using put
+step 5: get the same user using get
+
+using info from one api call to another is called corelation (using user id in step 3 created by step1)
+in API automation we do automatic corelation
+
+converting JS object to json is called serialization and API tools like PW rest assured do auto serialization.
+
+*** Schema Validation ****
+--------------------------------
+
+Q. what is Schema validation in API? why is it required?
+Ans. Schema validation is one of the most important concepts in API testing, especially in automation. 
+It verifies that an API response follows the expected structure and data types, regardless of the actual values.
+It is like a blueprint or contract that defines:-
+1. Which fields should be present
+2. Which fields are required
+3. Data types of each field
+4. Allowed values (optional)
+5. Nested object structure
+6. Array structure
+7. Constraints (length, min/max, regex, etc.)
+ we can generate schema from any online tool by passing the response of any API(GET etc)
+ 
+ 
+ in PW, we dont have direct method to validate schema for this we need Ajv library from node
+ first insatll AJV from node then import Ajv class from ajv package
+ so take generate schema and assign it to a varaiable in your code then use some methods from ajv library
+ AJV- Another JSON validator
+ It is a JavaScript/TypeScript library used to validate JSON data against a JSON Schema.
+ 1. create schema userSchema (if its a variable) --> we can create sperate json file alos and can import the file in test file
+ 2. import Ajv from "ajv"
+ 3. create object of Ajv class -- let ajv =new  Ajv()
+ 4. compile schema --let validate = ajv.complie(userSchema)
+ 5. compare response --> let valid = validate(response.body) -- this will return true or Failures
+ 6. if(!valid){clg(validate.errors)}
+
+
+***** OAuth2.0 ********
+---------------------------
+OAuth 2.0 is a authorization framework that allows thrid party application to access a user's resource without sharing pwd.
+for example- many applications (like spotify) give options to sign in with google account
+in this case google shares users data like picture and name like stuff without sharing the passowrd
+Authentication = Who are you?
+Authorization = What are you allowed to access?
+
+basically Google server i.e. authorization server will share access token which is temporary token to the client application
+
+OAuth 2.0 is an authorization framework that allows a client application to access protected resources 
+on behalf of a user without sharing the user's credentials. 
+Instead of passing the username and password to every API, the authorization server authenticates the user and 
+issues an access token. The client includes this token in the Authorization: Bearer <token> header when calling 
+protected APIs. If the access token expires, a refresh token can be used to obtain a new one without requiring 
+the user to log in again. A common real-world example is "Login with Google," where Google authenticates the 
+user and issues a token that allows another application, such as Spotify, to access the user's profile information
+with the user's consent.
+
+Q: How do you test an OAuth-protected API?
+1. Request an access token from the authorization server (often using the appropriate grant type, client secret and client id).
+2. Extract the access_token from the response.
+3. Include it in the request header:
+4. Authorization: Bearer <access_token>
+5. Validate the API response.
+6. Also test negative scenarios such as an expired token, an invalid token, or missing required permissions (scopes).
+
+grant type, client secret and client id is not sent in form of json body but called as form payload
+
+*** Interception ******
+--------------------------
+Interception in Playwright means capturing network requests before they reach the server. Using page.route(), 
+we can inspect, modify, mock, continue, or abort HTTP requests and responses. 
+It is commonly used to test UI behavior without depending on backend availability, 
+simulate different server responses (such as 404 or 500 errors), modify headers or request payloads, 
+block unnecessary resources, and make automated tests more reliable and faster.
