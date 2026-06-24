@@ -11,9 +11,9 @@ test.beforeEach(async({page})=>{
     homePage=new HomePage(page);
 });
 
-test.skip('home page title test', async()=>{
-    expect(await homePage.gethomePageTitle()).toBe('My Account');
-});
+// test.skip('home page title test', async()=>{
+//     expect(await homePage.gethomePageTitle()).toBe('My Account');
+// });
 
 test('logout link exist test', async()=>{
     expect(await homePage.isLogoutLinkExist()).toBeTruthy();
