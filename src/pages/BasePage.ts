@@ -32,7 +32,7 @@ export class BasePage{
         return await this.cartButton.isVisible();
     }
     async isFooterLinkExist():Promise<boolean>{
-        return await this.footerLinks.isVisible();
+        return await this.footerLinks.first().isVisible();
     }
 
     async isSearchboxVisible():Promise<boolean>{

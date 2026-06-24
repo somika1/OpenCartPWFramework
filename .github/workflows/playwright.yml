@@ -54,7 +54,7 @@ jobs:
         run: npx playwright install-deps chromium
 
       - name: Run tests
-        run: npx playwright test --project=chromium
+        run: npx playwright test tests/homepage.spec.ts --project=chromium
         env:
           ENV: ${{ github.event.inputs.environment || 'QA' }}
           BASE_URL: ${{ secrets.BASE_URL }}

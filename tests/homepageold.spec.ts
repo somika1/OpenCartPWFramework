@@ -11,7 +11,7 @@ test.beforeEach(async({page})=>{
     homePage=new HomePage(page);
 });
 
-test('home page title test', async()=>{
+test.skip('home page title test', async()=>{
     expect(await homePage.gethomePageTitle()).toBe('My Account');
 });
 

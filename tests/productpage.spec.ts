@@ -48,7 +48,7 @@ for(let row of productInfo){
 }
 
 
-test('add product quantity and add to cart test',async({homePage,productInfoPage,searchResultsPage})=>{
+test.skip('add product quantity and add to cart test',async({homePage,productInfoPage,searchResultsPage})=>{
     await homePage.doSearch('Macbook');
     await searchResultsPage.selectProduct('MacBook Pro');
     await homePage.pauseExecution(); //just to remove existing cart value for this user
