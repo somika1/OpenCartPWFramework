@@ -39,6 +39,7 @@ test('POST --> create a user', async({apiHelper})=>{
 //POST ---> UserID --> PUT/UserId ---> get
 test('PUT----> upadte a user', async({apiHelper})=>{
     let postResponse=await createUser(apiHelper);
+    console.log(postResponse);
      let userDataUpdated={
        name: 'Vinay API updated',
         // email: `vinay_api@${Date.now()}.test`,
@@ -46,14 +47,14 @@ test('PUT----> upadte a user', async({apiHelper})=>{
         status: 'inactive' 
     }
     //update user
-    let putResponse=await apiHelper.put(`/public/v2/users/8510120`,userDataUpdated,AUTH_HEADER);
+    let putResponse=await apiHelper.put(`/public/v2/users/${postResponse.id}`,userDataUpdated,AUTH_HEADER);
     expect(putResponse.status).toBe(200);
     expect(putResponse.body.name).toBe(userDataUpdated.name);
     expect(putResponse.body.status).toBe(userDataUpdated.status);
 
     //get response
     //${postResponse.id}
-    let getResponse=await apiHelper.get(`/public/v2/users/8510120`,AUTH_HEADER);
+    let getResponse=await apiHelper.get(`/public/v2/users/${postResponse.id}`,AUTH_HEADER);
     console.log("response after modification", getResponse.body);
     expect(getResponse.status).toBe(200);
     expect(getResponse.body.name).toBe(userDataUpdated.name);
