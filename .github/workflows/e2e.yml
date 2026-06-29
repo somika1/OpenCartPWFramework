@@ -194,7 +194,7 @@ jobs:
           echo "========================================="
           npx playwright test --project=chromium
         env:
-          ENV: qa
+          ENV: QA
           BASE_URL: ${{ secrets.BASE_URL }}
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
@@ -432,7 +432,7 @@ jobs:
             echo "overall=❌ SOME FAILURES" >> $GITHUB_OUTPUT
           fi
 
-          REPORT_BASE="https://naveenanimation20.github.io/OpenCartWebAPIFramework/runs/${{ github.run_id }}"
+          REPORT_BASE="https://github.com/somika1/OpenCartPWFramework/tree/gh-pages/runs/${{ github.run_id }}"
           echo "report_url=${REPORT_BASE}" >> $GITHUB_OUTPUT
 
       - name: Download All Reports
