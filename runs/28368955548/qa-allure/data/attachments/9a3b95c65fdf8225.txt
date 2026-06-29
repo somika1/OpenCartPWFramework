@@ -1,0 +1,12 @@
+apps credentials are james.test@gmail.com and James@123
+product name is  macbook
+complete product details are  Map(8) {
+  'ProductHeader' => 'MacBook Pro',
+  'ProductImages' => 4,
+  'Brand' => 'Apple',
+  'Product Code' => 'Product 18',
+  'Reward Points' => '800',
+  'Availability' => 'Out Of Stock',
+  'ProductPricing' => '$2,000.00',
+  'ExTaxPricing' => '$2,000.00'
+}

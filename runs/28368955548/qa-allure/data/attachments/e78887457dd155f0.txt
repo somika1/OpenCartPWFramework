@@ -1,0 +1,14 @@
+{
+  id: 8528085,
+  name: 'Vinay API',
+  email: 'vinay_api@1782732889453.test',
+  gender: 'male',
+  status: 'active'
+}
+response after modification {
+  id: 8528085,
+  name: 'Vinay API updated',
+  email: 'vinay_api@1782732889453.test',
+  gender: 'male',
+  status: 'inactive'
+}

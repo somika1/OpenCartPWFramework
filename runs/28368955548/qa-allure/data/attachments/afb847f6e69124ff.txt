@@ -1,0 +1,8 @@
+created new user id  8528083
+{
+  id: 8528083,
+  name: 'Vinay API',
+  email: 'vinay_api@1782732889424.test',
+  gender: 'male',
+  status: 'active'
+}

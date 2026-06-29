@@ -1,0 +1,11 @@
+apps credentials are james.test@gmail.com and James@123
+product name is  imac
+complete product details are  Map(7) {
+  'ProductHeader' => 'iMac',
+  'ProductImages' => 3,
+  'Brand' => 'Apple',
+  'Product Code' => 'Product 14',
+  'Availability' => 'Out Of Stock',
+  'ProductPricing' => '$122.00',
+  'ExTaxPricing' => '$100.00'
+}
