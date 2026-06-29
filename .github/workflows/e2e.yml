@@ -432,7 +432,7 @@ jobs:
             echo "overall=❌ SOME FAILURES" >> $GITHUB_OUTPUT
           fi
 
-          REPORT_BASE="https://github.com/somika1/OpenCartPWFramework/tree/gh-pages/runs/${{ github.run_id }}"
+          REPORT_BASE="https://somika1.github.io/OpenCartPWFramework/runs/${{ github.run_id }}"
           echo "report_url=${REPORT_BASE}" >> $GITHUB_OUTPUT
 
       - name: Download All Reports
