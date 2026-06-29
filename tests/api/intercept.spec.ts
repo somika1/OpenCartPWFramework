@@ -33,6 +33,6 @@ test('intercept with mocking', async({page})=>{
 
     });
     await page.goto('https://naveenautomationlabs.com/opencart/index.php?route=common/home');
-    await page.pause();
+    //await page.pause();
 });
 

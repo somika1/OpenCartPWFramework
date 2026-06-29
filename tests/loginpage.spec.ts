@@ -8,17 +8,17 @@ test.beforeEach('go to login page', async({loginPage})=>{
    await loginPage.goToLoginPage();
     
 });
-test('title test', async({loginPage})=>{
+test('@smoke title test', async({loginPage})=>{
    let pageTitle=await loginPage.getCurrentPageTitle();
     console.log("title of page is:", pageTitle);
     expect(pageTitle).toBe('Account Login');
 });
-test('forgot password link exist test', async({loginPage})=>{
+test('@smoke forgot password link exist test', async({loginPage})=>{
     let isForgotPwdLinkExist=await loginPage.isForgotPwdLinkExist();
     expect(isForgotPwdLinkExist).toBeTruthy();
 });
 
-test('application logo test', async({loginPage})=>{
+test('@smoke application logo test', async({loginPage})=>{
     expect(await loginPage.isLogoExist()).toBeTruthy();
 });
 
