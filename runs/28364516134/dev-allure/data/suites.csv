@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2232","@smoke forgot password link exist test","chromium","2026-06-29","passed","2026-06-29","","loginpage.spec.ts","",""
+"","2957","@smoke home page header test","chromium","2026-06-29","passed","2026-06-29","","homepage.spec.ts","",""
+"","3168","@smoke home page title test","chromium","2026-06-29","passed","2026-06-29","","homepage.spec.ts","",""
+"","2130","@smoke application logo test","chromium","2026-06-29","passed","2026-06-29","","loginpage.spec.ts","",""
+"","2215","@smoke title test","chromium","2026-06-29","passed","2026-06-29","","loginpage.spec.ts","",""
+"","2858","@smoke logout link exist test","chromium","2026-06-29","passed","2026-06-29","","homepage.spec.ts","",""
