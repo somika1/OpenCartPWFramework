@@ -77,7 +77,11 @@ pipeline {
                     git url: 'https://github.com/somika1/OpenCartPWFramework.git',
                         branch: 'main'
                     sh 'npm ci'
-                    sh 'npx playwright install --with-deps chromium'
+                    //sh 'npx playwright install --with-deps chromium'
+                    sh '''
+                        export PLAYWRIGHT_BROWSERS_PATH=$WORKSPACE/.playwright
+                         npx playwright install chromium
+                     '''
                 }
             }
         }
