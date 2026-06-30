@@ -603,7 +603,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "🎭 CI/CD Pipeline — ${{ steps.status.outputs.overall }} — ${{ github.ref_name }}"
-          to: training@naveenautomationlabs.com,somi.jain3@gmail.com
+          to: somi.jain3@gmail.com
           from: "CI Bot <${{ secrets.EMAIL_USERNAME }}>"
           html_body: file://dashboard.html
 
